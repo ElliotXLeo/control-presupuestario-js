@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/App.css">
 </head>
 
-<body>
+<body onload="cargarApp()">
 
   <div class="cabecero">
 
@@ -20,7 +20,7 @@
         Presupuesto disponible
       </div>
 
-      <div class="presupuesto_valor">
+      <div class="presupuesto_valor" id="presupuesto">
         + 2,000.00
       </div>
 
@@ -29,7 +29,7 @@
           Ingresos
         </div>
         <div class="derecha">
-          <div class="presupuesto_ingreso--valor">
+          <div class="presupuesto_ingreso--valor" id="totalIngreso">
             + 4,000.00
           </div>
           <div class="presupuesto_ingreso--porcentaje">
@@ -43,11 +43,11 @@
           Egreso
         </div>
         <div class="derecha limpiarEstilos">
-          <div class="presupuesto_egreso--valor">
+          <div class="presupuesto_egreso--valor" id="totalEgreso">
             - 2,000.00
           </div>
-          <div class="presupuesto_egreso--porcentaje">
-            45%
+          <div class="presupuesto_egreso--porcentaje" id="porcentajeEgreso">
+            50%
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
   <script src="js/Dato.js"></script>
   <script src="js/Ingreso.js"></script>
   <script src="js/Egreso.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/App.js"></script>
 </body>
 
 </html>
