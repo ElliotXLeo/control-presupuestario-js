@@ -1,12 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Control Presupuestario JS</title>
+  <link rel="icon" href="css/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="css/App.css">
 </head>
-<body>
-  
+
+<body onload="cargarApp()">
+
+  <div class="cabecero">
+    <div class="presupuesto">
+
+      <div class="presupuesto_titulo">
+        Presupuesto disponible
+      </div>
+
+      <div class="presupuesto_valor" id="presupuesto">
+        + 2,000.00
+      </div>
+
+      <div class="presupuesto_ingreso limpiarEstilos">
+        <div class="presupuesto_ingreso--texto">
+          Ingresos
+        </div>
+        <div class="derecha">
+          <div class="presupuesto_ingreso--valor" id="totalIngreso">
+            + 4,000.00
+          </div>
+          <div class="presupuesto_ingreso--porcentaje">
+            &nbsp;
+          </div>
+        </div>
+      </div>
+
+      <div class="presupuesto_egreso limpiarEstilos">
+        <div class="presupuesto_egreso--texto">
+          Egreso
+        </div>
+        <div class="derecha limpiarEstilos">
+          <div class="presupuesto_egreso--valor" id="totalEgreso">
+            - 2,000.00
+          </div>
+          <div class="presupuesto_egreso--porcentaje" id="porcentajeEgreso">
+            50%
+          </div>
+        </div>
+      </div>
+
+      <div class="nuevo_presupuesto limpiarEstilos">
+        <button class="nuevo_presupuesto--boton" onclick="nuevoPresupuesto()">
+          <div class="nuevo_presupuesto--texto">
+            Nuevo Presupuesto
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <form id="formulario" onsubmit="return false;">
+    <div class="agregar">
+      <div class="agregar_contenedor">
+
+        <select name="tipo" id="tipo" class="agregar_tipo">
+          <option value="ingreso" selected>+</option>
+          <option value="egreso">-</option>
+        </select>
+
+        <input type="text" class="agregar_descripcion" placeholder="Descripción" id="descripcion" />
+
+        <input type="number" class="agregar_valor" placeholder="Valor" id="valor" step="any" />
+
+        <button class="agregar_boton" onclick="agregarMovimiento()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+
+      </div>
+    </div>
+  </form>
+
+  <div class="contenedor limpiarEstilos">
+
+    <div class="ingreso">
+
+      <h2 class="ingreso_titulo">
+        Ingresos
+      </h2>
+
+      <div id="listaIngresos">
+
+        <div class="elemento limpiarEstilos">
+          <div class="elemento_descripcion">
+            Salario
+          </div>
+          <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">
+              + 2,000.00
+            </div>
+            <div class="elemento_eliminar">
+              <button class="elemento_eliminar--boton">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="egreso">
+
+      <h2 class="egreso_titulo">
+        Egresos
+      </h2>
+
+      <div id="listaEgresos">
+
+        <div class="elemento limpiarEstilos">
+          <div class="elemento_descripcion">
+            Departamento
+          </div>
+          <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">
+              - 1,500.00
+            </div>
+            <div class="elemento_porcentaje">
+              65.22%
+            </div>
+            <div class="elemento_eliminar">
+              <button class="elemento_eliminar--boton">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/Movimiento.js"></script>
+  <script src="js/Ingreso.js"></script>
+  <script src="js/Egreso.js"></script>
+  <script src="js/App.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
