@@ -1,4 +1,4 @@
-class Egreso extends Dato {
+class Egreso extends Movimiento {
   static contadorEgreso = 0
 
   constructor(descripcion, valor) {

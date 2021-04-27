@@ -51,8 +51,37 @@
         </div>
       </div>
 
+      <div class="nuevo_presupuesto limpiarEstilos">
+        <button class="nuevo_presupuesto--boton" onclick="nuevoPresupuesto()">
+          <div class="nuevo_presupuesto--texto">
+            Nuevo Presupuesto
+          </div>
+        </button>
+      </div>
+
     </div>
   </div>
+
+  <form id="formulario" onsubmit="return false;">
+    <div class="agregar">
+      <div class="agregar_contenedor">
+
+        <select name="tipo" id="tipo" class="agregar_tipo">
+          <option value="ingreso" selected>+</option>
+          <option value="egreso">-</option>
+        </select>
+
+        <input type="text" class="agregar_descripcion" placeholder="Descripción" id="descripcion" />
+
+        <input type="number" class="agregar_valor" placeholder="Valor" id="valor" step="any" />
+
+        <button class="agregar_boton" onclick="agregarMovimiento()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+
+      </div>
+    </div>
+  </form>
 
   <div class="contenedor limpiarEstilos">
 
@@ -71,22 +100,6 @@
           <div class="derecha limpiarEstilos">
             <div class="elemento_valor">
               + 2,000.00
-            </div>
-            <div class="elemento_eliminar">
-              <button class="elemento_eliminar--boton">
-                <ion-icon name="close-circle-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="elemento limpiarEstilos">
-          <div class="elemento_descripcion">
-            Consultoría
-          </div>
-          <div class="derecha limpiarEstilos">
-            <div class="elemento_valor">
-              + 300.00
             </div>
             <div class="elemento_eliminar">
               <button class="elemento_eliminar--boton">
@@ -127,32 +140,13 @@
           </div>
         </div>
 
-        <div class="elemento limpiarEstilos">
-          <div class="elemento_descripcion">
-            Alimentación
-          </div>
-          <div class="derecha limpiarEstilos">
-            <div class="elemento_valor">
-              - 250.00
-            </div>
-            <div class="elemento_porcentaje">
-              10.87%
-            </div>
-            <div class="elemento_eliminar">
-              <button class="elemento_eliminar--boton">
-                <ion-icon name="close-circle-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
 
   </div>
 
-  <script src="js/Dato.js"></script>
+  <script src="js/Movimiento.js"></script>
   <script src="js/Ingreso.js"></script>
   <script src="js/Egreso.js"></script>
   <script src="js/App.js"></script>

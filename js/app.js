@@ -1,18 +1,17 @@
 const ingresos = [
   new Ingreso('Salario', 2000.00),
-  new Ingreso('Consultoría', 300.00),
-  new Ingreso('Interés', 60.00)
+  new Ingreso('Consultoría', 900.00),
 ];
 
 const egresos = [
   new Egreso('AFP-Aporte', 200.00),
   new Egreso('AFP-Administración', 4.60),
   new Egreso('AFP-Seguro', 34.80),
-  new Egreso('Alimentación', 250.00),
+  new Egreso('Alimentación', 350.00),
   new Egreso('Departamento', 1500.00)
 ];
 
-let totalIngresos = () => {
+const totalIngresos = () => {
   let totalIngreso = 0;
   for (let ingreso of ingresos) {
     totalIngreso += ingreso.valor;
@@ -20,7 +19,7 @@ let totalIngresos = () => {
   return totalIngreso;
 }
 
-let totalEgresos = () => {
+const totalEgresos = () => {
   let totalEgreso = 0;
   for (let egreso of egresos) {
     totalEgreso += egreso.valor;
@@ -36,11 +35,14 @@ const formatoPorcentaje = (valor) => {
   return valor.toLocaleString('en-US', { style: 'percent', minimumFractionDigits: 2 })
 }
 
-let cargarCabecero = () => {
+const cargarCabecero = () => {
   let totalIngreso = totalIngresos();
   let totalEgreso = totalEgresos();
   let presupuesto = totalIngreso - totalEgreso;
-  let porcentajeEgreso = totalEgreso / totalIngreso;
+  let porcentajeEgreso = 0;
+  if (totalIngreso > 0) {
+    porcentajeEgreso = totalEgreso / totalIngreso;
+  }
   document.getElementById('presupuesto').innerHTML = formatoMonedaSoles(presupuesto);
   document.getElementById('porcentajeEgreso').innerHTML = formatoPorcentaje(porcentajeEgreso);
   document.getElementById('totalIngreso').innerHTML = formatoMonedaSoles(totalIngreso);
@@ -98,7 +100,7 @@ const crearEgresoHtml = (egreso) => {
           - ${formatoMonedaSoles(egreso.valor)}
         </div>
         <div class="elemento_porcentaje">
-          ${formatoPorcentaje(egreso.valor / totalIngresos())}
+          ${totalIngresos() > 0 ? formatoPorcentaje(egreso.valor / totalIngresos()) : formatoPorcentaje(0)}
         </div>
         <div class="elemento_eliminar">
           <button class="elemento_eliminar--boton">
@@ -110,7 +112,7 @@ const crearEgresoHtml = (egreso) => {
   `
 }
 
-let cargarApp = () => {
+const cargarApp = () => {
   cargarCabecero();
   cargarIngresos();
   cargarEgresos();
@@ -125,5 +127,36 @@ const eliminarIngreso = (id) => {
 const eliminarEgreso = (id) => {
   let indiceEliminar = egresos.findIndex(egreso => egreso.id === id);
   egresos.splice(indiceEliminar, 1);
+  cargarApp();
+}
+
+const agregarMovimiento = () => {
+  let formulario = document.forms['formulario'];
+  let tipo = formulario['tipo'].value;
+  let descripcion = formulario['descripcion'].value;
+  let valor = formulario['valor'].value;
+  if (descripcion !== '' && valor !== '') {
+    if (tipo === 'ingreso') {
+      ingresos.push(new Ingreso(descripcion, Math.abs(+valor)));
+    } else {
+      egresos.push(new Egreso(descripcion, Math.abs(+valor)));
+    }
+  }
+  formulario['descripcion'].value = '';
+  formulario['valor'].value = '';
+  cargarApp();
+}
+
+const nuevoPresupuesto = () => {
+  while (ingresos.length > 0) {
+    ingresos.pop();
+  }
+
+  while (egresos.length > 0) {
+    egresos.pop();
+  }
+
+  document.forms['formulario'].reset();
+
   cargarApp();
 }
