@@ -157,6 +157,5 @@ const nuevoPresupuesto = () => {
   }
 
   document.forms['formulario'].reset();
-
   cargarApp();
 }
