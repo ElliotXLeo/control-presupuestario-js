@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./css/App.css">
 </head>
 
-<body onload="cargarApp()">
+<body onload="cargarApp()" class="body">
 
   <div class="cabecero">
     <div class="presupuesto">
@@ -62,9 +62,9 @@
     <div class="agregar">
       <div class="agregar_contenedor">
 
-        <select name="tipo" id="tipo" class="agregar_tipo">
-          <option value="ingreso" selected>+</option>
-          <option value="egreso">-</option>
+        <select name="tipo" id="tipo" class="agregar_tipo" onchange="tipoOperacion(event)">
+          <option value="ingresoOperacion" selected>+</option>
+          <option value="egresoOperacion">-</option>
         </select>
 
         <input type="text" class="agregar_descripcion" placeholder="Descripción" id="descripcion" />
@@ -72,7 +72,7 @@
         <input type="number" class="agregar_valor" placeholder="Valor" id="valor" step="any" />
 
         <button class="agregar_boton" onclick="agregarMovimiento()">
-          <ion-icon name="add-circle-outline"></ion-icon>
+          <ion-icon name="add-circle-outline" id="addCircle"></ion-icon>
         </button>
 
       </div>

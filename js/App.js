@@ -136,7 +136,7 @@ const agregarMovimiento = () => {
   let descripcion = formulario['descripcion'].value;
   let valor = formulario['valor'].value;
   if (descripcion !== '' && valor !== '') {
-    if (tipo === 'ingreso') {
+    if (tipo === 'ingresoOperacion') {
       ingresos.push(new Ingreso(descripcion, Math.abs(+valor)));
     } else {
       egresos.push(new Egreso(descripcion, Math.abs(+valor)));
@@ -145,6 +145,25 @@ const agregarMovimiento = () => {
   formulario['descripcion'].value = '';
   formulario['valor'].value = '';
   cargarApp();
+}
+
+const tipoOperacion = (event) => {
+  const tipo = document.getElementById('tipo');
+  const descripcion = document.getElementById('descripcion');
+  const valor = document.getElementById('valor');
+  const addCircle = document.getElementById('addCircle');
+
+  if(event.target.value === 'egresoOperacion'){
+    tipo.classList.add("rojoFocus");
+    descripcion.classList.add("rojoFocus");
+    valor.classList.add("rojoFocus");
+    addCircle.classList.add("rojo");
+  } else {
+    tipo.classList.remove("rojoFocus");
+    descripcion.classList.remove("rojoFocus");
+    valor.classList.remove("rojoFocus");
+    addCircle.classList.remove("rojo");
+  }
 }
 
 const nuevoPresupuesto = () => {
