@@ -16,6 +16,11 @@ Aplicación de control presupuestario el cuál te permite calcular tu presupuest
 | --- | --- | --- |
 | <img src="https://javier-rodriguez.vercel.app/img/logos/html-5.svg" width="1000px"/> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png" width="1000px"/> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="1000px"/> |
 
+## Versiones
+| JavaScript | Angular |
+| --- | --- |
+| <a href="https://github.com/ElliotXLeo/control-presupuestario-js"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="1000px"/></a> | <a href="https://github.com/ElliotXLeo/control-presupuestario-a"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png" width="1000px"/></a> |
+
 ## Redes sociales
 
 - GitHub: https://github.com/ElliotXLeo

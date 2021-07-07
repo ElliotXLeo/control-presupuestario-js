@@ -10,7 +10,7 @@
   clear: both;
 }
 
-body {
+.body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1em;
   font-weight: 400;
@@ -119,6 +119,7 @@ body {
 }
 
 .agregar_tipo {
+  color: #555555;
   width: 4em;
   border: 0.05em solid #aaaaaa;
   padding: 0.8em;
@@ -128,12 +129,13 @@ body {
   transition: all 0.5s;
   appearance: none;
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-	background-repeat: no-repeat, repeat;
-	background-position: right 0.7em top 50%, 0 0;
-	background-size: 0.65em auto, 100%;
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
 }
 
 .agregar_descripcion, .agregar_valor {
+  color: #555555;
   border: 0.05em solid #aaaaaa;
   font-size: 1em;
   padding: 0.8em;
@@ -163,10 +165,6 @@ body {
 .agregar_boton:active {
   transform: translateY(0.1em);
   transition: all 0.2s;
-}
-
-.agregar_tipo:hover, .agregar_descripcion:hover, .agregar_valor:hover {
-  border: 0.05em solid #28B9B5;
 }
 
 .agregar_tipo:focus, .agregar_descripcion:focus, .agregar_valor:focus {
@@ -217,6 +215,7 @@ body {
 }
 
 .elemento_descripcion {
+  color: #555555;
   float: left;
 }
 
@@ -275,33 +274,43 @@ body {
   transition: all 0.5s;
 }
 
+.rojoFocus:focus {
+  border: 0.05em solid #FF5049;
+  transition: all 0.5s;
+}
+
+.rojo {
+  color: #FF5049;
+  transition: all 0.5s;
+}
+
 @media (max-width: 1600px) {
-  body {
-    font-size: 0.9em;
+  .body {
+    font-size: 0.95em;
   }
 }
 
 @media (max-width: 1440px) {
-  body {
-    font-size: 0.8em;
+  .body {
+    font-size: 0.9em;
   }
 }
 
 @media (max-width: 1280px) {
-  body {
-    font-size: 0.7em;
+  .body {
+    font-size: 0.85em;
   }
 }
 
 @media (max-width: 1024px) {
-  body {
-    font-size: 0.6em;
+  .body {
+    font-size: 0.8em;
   }
 }
 
 @media (max-width: 800px) {
-  body {
-    font-size: 0.5em;
+  .body {
+    font-size: 0.75em;
   }
   .contenedor {
     display: flex;
@@ -312,8 +321,8 @@ body {
 }
 
 @media (max-width: 600px) {
-  body {
-    font-size: 0.4em;
+  .body {
+    font-size: 0.7em;
   }
   .contenedor {
     display: flex;
