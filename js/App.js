@@ -71,7 +71,7 @@ const crearIngresoHtml = (ingreso) => {
         </div>
         <div class="elemento_eliminar">
           <button class="elemento_eliminar--boton">
-            <ion-icon name="close-circle-outline" onclick='eliminarIngreso(${ingreso.id})'></ion-icon>
+            <p onclick='eliminarIngreso(${ingreso.id})'>x</p>
           </button>
         </div>
       </div>
@@ -104,7 +104,7 @@ const crearEgresoHtml = (egreso) => {
         </div>
         <div class="elemento_eliminar">
           <button class="elemento_eliminar--boton">
-          <ion-icon name="close-circle-outline" onclick='eliminarEgreso(${egreso.id})'></ion-icon>
+            <p onclick='eliminarEgreso(${egreso.id})'>x</p>
           </button>
         </div>
       </div>
@@ -153,7 +153,7 @@ const tipoOperacion = (event) => {
   const valor = document.getElementById('valor');
   const addCircle = document.getElementById('addCircle');
 
-  if(event.target.value === 'egresoOperacion'){
+  if (event.target.value === 'egresoOperacion') {
     tipo.classList.add("rojoFocus");
     descripcion.classList.add("rojoFocus");
     valor.classList.add("rojoFocus");
